@@ -1,15 +1,21 @@
 package main.java.com.arvidgranroth.adventofcode2015.day.day1.solution;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import main.java.com.arvidgranroth.adventofcode2015.day.Day;
+import main.java.com.arvidgranroth.adventofcode2015.day.day2.solution.Day2;
 
-public class Day1{
+import java.io.FileNotFoundException;
+
+public class Day1 extends Day {
 
     public Day1() {
+        super(2021, 1);
     }
 
-    public void part1() throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException {
+        new Day1().printParts();
+    }
+
+    public Object part1() throws FileNotFoundException {
         String input = getInput();
         int result = 0;
 
@@ -21,35 +27,25 @@ public class Day1{
                 result--;
             }
         }
-
-        System.out.println(result);
-
+        return result;
     }
 
-    public void part2() throws FileNotFoundException {
+    public Object part2() throws FileNotFoundException {
         String input = getInput();
-        int result = 0;
+        int counter = 0;
 
         for(int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == '(') {
-                result++;
+                counter++;
             }
             else {
-                result--;
+                counter--;
             }
-            if (result == -1) {
-                System.out.println(i+1); // one-based indexing in 2022? we really do be living in a society
+            if (counter == -1) {
+                // one-based indexing in 2022? we really do be living in a society
+                return i+1;
             }
         }
-    }
-
-    private String getInput() throws FileNotFoundException {
-        File inputFile = new File("C:\\Users\\Arvid\\IdeaProjects\\AdventOfCode2015\\src\\main\\java\\com\\arvidgranroth\\adventofcode2015\\day\\day1\\data\\day1input.txt");
-        Scanner scanner = new Scanner(inputFile);
-        StringBuilder stringBuilder = new StringBuilder();
-        while (scanner.hasNext()) {
-            stringBuilder.append(scanner.next());
-        }
-        return stringBuilder.toString();
+        return "None found";
     }
 }
