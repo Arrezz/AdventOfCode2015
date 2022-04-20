@@ -1,6 +1,6 @@
 # Advent of Code 2015
 
-Solutions for [Advent of Code 2015][aoc]. This project uses Java 17 and Spring Boot.
+Solutions for [Advent of Code 2015][aoc]. This project uses Java 17.
 
 [aoc]: https://adventofcode.com/2015/
 
